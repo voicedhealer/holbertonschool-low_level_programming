@@ -1,8 +1,9 @@
 #include <stdio.h>
+
 /**
- *
- *
- *
+ * main - display an write special
+ * 
+ * Return: allways 0 (succes)
 */
 int main(void)
 {
