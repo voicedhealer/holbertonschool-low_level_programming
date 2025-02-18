@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
- *char in argument
- *printf for print the char 
- */
-int main()
+ *
+ *
+ *
+*/
+int main(void)
 {
-    char mon char = "with proper grammar, but the outcome is a piece of art,";
-    printf ("mon char = %c\n", mon char);
-    return 0;
+    printf("with proper grammar, but the outcome is a piece of art,\n");
+    return (0);
 }	 
