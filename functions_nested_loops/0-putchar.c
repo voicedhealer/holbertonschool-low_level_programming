@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
  * main - Affiche _putchar suivi d'une nouvelle ligne
@@ -7,13 +7,15 @@
  */
 int main(void)
 {
-	char str[] = "_putchar\n";
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		write(1, &str[i], 1);
-	}
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 
 	return (0);
 }
