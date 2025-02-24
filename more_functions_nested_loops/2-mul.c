@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "main.h"
-/** fonction de multiplication
-*
-*a + b
-*
+
+/** 
+*fonction de multiplication
+*premier entier
+*deuxieme entier
 */
 int mul(int a, int b)
 {
