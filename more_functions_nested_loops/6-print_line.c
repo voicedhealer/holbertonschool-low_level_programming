@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
-*print_line - dessine une ligne droite dans le terminal
-*@n: nombre de trois que le caractérer _ doit être imprimé
-*
-*/
-void print_line(int n);
+ * print_line - dessine une ligne droite dans le terminal
+ * @n: nombre de fois que le caractère _ doit être imprimé
+ */
+void print_line(int n)
 {
 	if (n <= 0)
 	{
@@ -15,11 +14,10 @@ void print_line(int n);
 	{
 		int i;
 
-		for (i = 0; < n n; i++)
-	{
-		_putchar('_');
+		for (i = 0; i < n; i++)
+		{
+			_putchar('_');
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
-	}
-}
-	 
+}	 
