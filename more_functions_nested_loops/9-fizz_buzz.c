@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - imprime les nombres de 1 à 100 avec les règles Fizz-Buzz
