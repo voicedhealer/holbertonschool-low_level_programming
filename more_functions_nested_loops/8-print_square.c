@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
-*
-*
+*imprime un carré suivie d'une ligne
+*taille du carré
 *
 /*
 void print_square(int size);
