@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * print_rev - Imprime une chaîne de caractères à l'envers.
