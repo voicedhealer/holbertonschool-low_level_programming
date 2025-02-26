@@ -1,26 +1,31 @@
-#include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 /**
-* imprimer_inverse - Imprime une chaîne de caractères à l'envers.
-* @chaine: La chaîne de caractères à inverser.
-*
-* Cette fonction prend une chaîne de caractères en entrée,
-* l'inverse et l'affiche suivie d'un saut de ligne.
-*/
-void imprimer_inverse(const char *chaine)
+ * print_rev - Imprime une chaîne de caractères à l'envers.
+ * @s: La chaîne de caractères à inverser.
+ *
+ * Retourne: Rien.
+ */
+void print_rev(char *s)
 {
-    int i, longueur;
+    int longueur = 0;
+    int i;
 
-    if (chaine == NULL)
-    {
+    if (s == NULL)
         return;
+
+    /* Calculer la longueur de la chaîne */
+    while (s[longueur] != '\0')
+    {
+        longueur++;
     }
 
-    longueur = strlen(chaine);
+    /* Afficher les caractères à l'envers */
     for (i = longueur - 1; i >= 0; i--)
     {
-        putchar(chaine[i]);
+        _putchar(s[i]);
     }
-    putchar('\n');
+
+    /* Ajouter un saut de ligne */
+    _putchar('\n');
 }
