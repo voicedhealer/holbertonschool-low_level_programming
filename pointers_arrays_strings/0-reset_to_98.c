@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include "main.c"
 /**
-*
+*call the pointers 
 *
 *
 */
