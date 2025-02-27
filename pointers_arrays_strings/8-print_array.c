@@ -1,12 +1,13 @@
+#include <stdio.h>
+#include "main.h"
 /**
 *utilisation de 2 int a et n 
 *un espace après la virgule
 *respect l'ordre demander
 *
-/*
-#include <stdio.h>
-#include "main.h"
-
+*/
+void print_array(int *a, int n)
+{
 int main(){
    int a[5] = {-1024, -198, 98, 298, 402};  
    int n;
@@ -15,4 +16,5 @@ int main(){
       printf("array [%d]: %d\n", n, a[n]);
    }
    return 0;
+	}
 }
