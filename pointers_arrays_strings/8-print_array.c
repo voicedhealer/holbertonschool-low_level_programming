@@ -1,20 +1,23 @@
 #include <stdio.h>
 #include "main.h"
+
 /**
-*utilisation de 2 int a et n 
-*un espace après la virgule
-*respect l'ordre demander
-*
-*/
+ * print_array - Imprime n éléments d'un tableau d'entiers
+ * @a: Le tableau à imprimer
+ * @n: Le nombre d'éléments à imprimer
+ *
+ * Description: Les nombres sont séparés par une virgule et un espace.
+ * Un saut de ligne est ajouté à la fin.
+ */
 void print_array(int *a, int n)
 {
-int main(){
-   int a[5] = {-1024, -198, 98, 298, 402};  
-   int n;
+	int i;
 
-   for (n = 0; n <= 4; n++){
-      printf("array [%d]: %d\n", n, a[n]);
-   }
-   return 0;
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", a[i]);
+		if (i < n - 1)
+			printf(", ");
 	}
+	printf("\n");
 }
