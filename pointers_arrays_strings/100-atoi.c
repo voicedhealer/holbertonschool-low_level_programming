@@ -1,5 +1,4 @@
 #include "main.h"
-#include <limits.h>
 
 /**
  * _atoi - Convertit une chaîne en entier
@@ -12,28 +11,25 @@ int _atoi(char *s)
 	int result = 0;
 	int sign = 1;
 	int i = 0;
+	int digit;
 
-	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
-		i++;
-
-	if (s[i] == '-')
+	while (s[i] != '\0' && (s[i] < '0' || s[i] > '9'))
 	{
-		sign = -1;
+		if (s[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	else if (s[i] == '+')
-		i++;
 
-	while (s[i] >= '0' && s[i] <= '9')
+	while (s[i] != '\0' && s[i] >= '0' && s[i] <= '9')
 	{
-		if (result > INT_MAX / 10 ||
-		    (result == INT_MAX / 10 && s[i] - '0' > INT_MAX % 10))
+		digit = s[i] - '0';
+		if (result > (2147483647 - digit) / 10)
 		{
-			return (sign == 1 ? INT_MAX : INT_MIN);
+			return (sign == 1 ? 2147483647 : -2147483648);
 		}
-		result = result * 10 + (s[i] - '0');
+		result = result * 10 + digit;
 		i++;
 	}
 
-	return (result * sign);
+	return result * sign;
 }
