@@ -5,6 +5,7 @@
 *
 /*
 #include <stdio.h>
+#include "main.h"
 
 int main(){
    int a[5] = {-1024, -198, 98, 298, 402};  
