@@ -1,11 +1,12 @@
 #include "main.h"
-/**
-*
-*
-*
-*
-*/
 
+/**
+ * puts_half - Imprime la deuxième moitié d'une chaîne
+ * @str: La chaîne à imprimer
+ *
+ * Description: Cette fonction imprime la deuxième moitié d'une chaîne.
+ * Si le nombre de caractères est impair, elle imprime les (longueur_de_la_chaîne + 1) / 2 derniers caractères.
+ */
 void puts_half(char *str)
 {
 	int length = 0;
