@@ -1,20 +1,21 @@
-#include <stdio.h>
-#include <string.h
 #include "main.h"
-/*
-*copy of src in dest
-*
-*loops for copy byte
-*return dest
-*/
+
+/**
+ * _memcpy - Copie une zone mémoire
+ * @dest: Pointeur vers la destination
+ * @src: Pointeur vers la source
+ * @n: Nombre d'octets à copier
+ *
+ * Return: Pointeur vers la destination
+ */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	insigned int i;
+	unsigned int i;
 
-	for (i = 0; i < n; i++);
+	for (i = 0; i < n; i++)
 	{
 		dest[i] = src[i];
 	}
-	
+
 	return (dest);
 }
