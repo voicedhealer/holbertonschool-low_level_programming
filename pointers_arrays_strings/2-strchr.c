@@ -1,22 +1,24 @@
 #include "main.h"
 
 /**
- * _strchr - Localise un caractère dans une chaîne
- * @s: La chaîne à parcourir
- * @c: Le caractère à rechercher
+ * _strchr - locates a character in a string
  *
- * Return: Un pointeur vers la première occurrence de c dans s,
- * ou NULL si le caractère n'est pas trouvé
+ * @c: occurrence of the character
+ *
+ * @s: in the string
+ *
+ * Return: a pointer to the first occurrence of the character
  */
+
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
+	while (*s)
 	{
-		if (*s == c)
+		if (*s != c)
+			s++;
+		else
 			return (s);
-		s++;
 	}
-
 	if (c == '\0')
 		return (s);
 
