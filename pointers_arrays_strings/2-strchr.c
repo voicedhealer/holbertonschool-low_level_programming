@@ -3,7 +3,7 @@
 /**
  * _strchr - Localise un caractère dans une chaîne
  * @s: La chaîne à parcourir
- * @c: Le caractère à trouver
+ * @c: Le caractère à rechercher
  *
  * Return: Un pointeur vers la première occurrence de c dans s,
  * ou NULL si le caractère n'est pas trouvé
