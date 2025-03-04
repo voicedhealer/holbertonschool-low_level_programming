@@ -4,12 +4,13 @@
  * print_chessboard - Prints the chessboard
  * @a: 2D array representing the chessboard
  *
- * Return: void
- *
+ * Description: This function prints an 8x8 chessboard represented
+ * by a 2D array of characters.
  */
 void print_chessboard(char (*a)[8])
 {
 	int i, j;
+
 	for (i = 0; i < 8; i++)
 	{
 		for (j = 0; j < 8; j++)
