@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <string.h>
 #include "main.h"
+
 /**
- *print_chessboard - Prints the chessboard
+ * print_chessboard - Prints the chessboard
  * @a: 2D array representing the chessboard
  *
  * Return: void
