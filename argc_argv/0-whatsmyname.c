@@ -1,9 +1,10 @@
 #include <stdio.h>
 
- /**
- * argc et argv
- * la condition compare argc 
- * printf pour afficher le nom
+/**
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: always 0
  */
 
 int main(int argc, char *argv[])
