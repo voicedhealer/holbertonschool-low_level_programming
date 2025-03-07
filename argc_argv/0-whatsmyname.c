@@ -1,15 +1,26 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
- * main - entry point
- * @argc: argument count
- * @argv: argument vector
- * Return: always 0
+ * main - Imprime le nom du programme
+ * @argc: Nombre d'arguments
+ * @argv: Tableau des arguments
+ *
+ * Return: Toujours 0 (Succès)
  */
-
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	char *nom_programme;
 
-	return(0);
+	(void)argc;  /* Ignorer argc car non utilisé */
+
+	nom_programme = strrchr(argv[0], '/');
+	if (nom_programme == NULL)
+		nom_programme = argv[0];
+	else
+		nom_programme++;  /* Sauter le '/' */
+
+	printf("%s\n", nom_programme);
+
+	return (0);
 }
