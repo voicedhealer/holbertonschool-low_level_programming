@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 {
 	char *nom_programme;
 
-	(void)argc;  /* Ignorer argc car non utilisé */
+	(void)argc;
 
 	nom_programme = strrchr(argv[0], '/');
 	if (nom_programme == NULL)
 		nom_programme = argv[0];
 	else
-		nom_programme++;  /* Sauter le '/' */
+		nom_programme++;
 
 	printf("%s\n", nom_programme);
 
