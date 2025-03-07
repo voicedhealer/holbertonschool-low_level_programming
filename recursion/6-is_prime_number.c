@@ -1,29 +1,29 @@
-#include "main.h"
 /**
- * check_prime - Helper function to check if a number is prime
- * @n: The number to check
- * @divisor: The current divisor being checked
+ * check_prime - Vérifie si un nombre est premier
+ * @n: Le nombre à vérifier
+ * @i: Le diviseur actuel
  *
- * Return: 1 if prime, 0 if not
+ * Return: 1 si le nombre est premier, 0 sinon
  */
-int check_prime(int n, int divisor)
+int check_prime(int n, int i)
 {
-    if (n <= 1)
-        return (0);
-    if (divisor * divisor > n)
-        return (1);
-    if (n % divisor == 0)
-        return (0);
-    return (check_prime(n, divisor + 1));
+		if (n <= 1)
+			return (0);
+		if (i * i > n)
+			return (1);
+		if (n % i == 0)
+			return (0);
+		return (check_prime(n, i + 1));
 }
 
 /**
- * is_prime_number - Determines if an integer is a prime number
- * @n: The number to check
+ * is_prime_number - Détermine si un entier est un nombre premier
+ * @n: Le nombre à vérifier
  *
- * Return: 1 if prime, 0 if not
+ * Return: 1 si le nombre est premier, 0 sinon
  */
 int is_prime_number(int n)
 {
-    return (check_prime(n, 2));
+		return (check_prime(n, 2));
 }
+
