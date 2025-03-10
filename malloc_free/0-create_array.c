@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * create_array - Crée et initialise un tableau de caractères
