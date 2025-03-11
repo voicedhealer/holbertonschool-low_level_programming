@@ -1,38 +1,43 @@
-#include <stdlib.h>
+i#include <stdlib.h>
 
 /**
- * alloc_grid - Alloue et initialise une grille 2D d'entiers
- * @width: Largeur de la grille (nombre de colonnes)
- * @height: Hauteur de la grille (nombre de lignes)
+ * alloc_grid - return a pointer to a 2 dimensional array of ints
  *
- * Return: Pointeur vers la grille allouée, NULL en cas d'échec
+ * @width: ancho del array
+ * @height: altura del array
+ *
+ * Return: return a pointer to 2d array or NULL if is cero, less or fail
  */
 int **alloc_grid(int width, int height)
 {
-		if (width <= 0 || height <= 0)
-			return (NULL);
+	int **p;
+	int h, w;
 
-		int **grid;
-		int i, j;
+	if (width <= 0 || height <= 0)
+		return (NULL);
 
-		grid = malloc(sizeof(int *) * height);
-		if (grid == NULL)
-			return (NULL);
-
-		for (i = 0; i < height; i++)
+	p = malloc(height * sizeof(int *));
+	if (p != '\0')
+	{
+		for (h = 0; h < height; h++)
 		{
-			grid[i] = malloc(sizeof(int) * width);
-			if (grid[i] == NULL)
+			p[h] = malloc(width * sizeof(int));
+			if (p[h] == '\0')
 			{
-				for (j = 0; j < i; j++)
-					free(grid[j]);
-				free(grid);
-				return (NULL);
+				for (; h >= 0; h--)
+					free(p[h]);
+				free(p);
+				return ('\0');
 			}
-
-			for (j = 0; j < width; j++)
-				grid[i][j] = 0;
 		}
-
-		return (grid);
+		for (h = 0; h < height; h++)
+		{
+			for (w = 0; w < width; w++)
+			{
+				p[h][w] = 0;
+			}
+		}
+		return (p);
+	}
+	return ('\0');
 }
