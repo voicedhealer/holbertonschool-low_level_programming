@@ -1,30 +1,50 @@
-
 char *string_nconcat(char *s1, char *s2, unsigned int n) {
-    unsigned int i, j, len1 = 0, len2 = 0;
-    char *str;
+    #include <stdlib.h>
 
-    if (s1 == NULL)
-        s1 = "";
-    if (s2 == NULL)
-        s2 = "";
+/**
+ * string_nconcat - Concatène deux chaînes avec une limite sur s2
+ * @s1: Première chaîne
+ * @s2: Deuxième chaîne
+ * @n: Nombre maximal d'octets à prendre de s2
+ *
+ * Return: Pointeur vers la nouvelle chaîne concaténée, NULL si échec
+ */
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	char *concat;
+	unsigned int len1, len2, copy_len, i, j;
 
-    while (s1[len1])
-        len1++;
-    while (s2[len2])
-        len2++;
+	len1 = 0;
+	len2 = 0;
 
-    if (n >= len2)
-        n = len2;
+	/* Traite NULL comme chaîne vide */
+	s1 = s1 ? s1 : "";
+	s2 = s2 ? s2 : "";
 
-    str = malloc(sizeof(char) * (len1 + n + 1));
-    if (str == NULL)
-        return (NULL);
+	/* Calcule longueurs */
+	while (s1[len1])
+		len1++;
+	while (s2[len2])
+		len2++;
 
-    for (i = 0; i < len1; i++)
-        str[i] = s1[i];
-    for (j = 0; j < n; j++)
-        str[i + j] = s2[j];
-    str[i + j] = '\0';
+	/* Détermine combien de s2 copier */
+	copy_len = (n >= len2) ? len2 : n;
 
-    return (str);
+	/* Alloue mémoire */
+	concat = malloc(len1 + copy_len + 1);
+	if (concat == NULL)
+		return (NULL);
+
+	/* Copie s1 */
+	for (i = 0; i < len1; i++)
+		concat[i] = s1[i];
+
+	/* Copie s2 (jusqu'à copy_len) */
+	for (j = 0; j < copy_len; j++, i++)
+		concat[i] = s2[j];
+
+	concat[i] = '\0'; /* Terminaison nulle */
+
+	return (concat);
 }
+
