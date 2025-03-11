@@ -1,5 +1,4 @@
-char *string_nconcat(char *s1, char *s2, unsigned int n) {
-    #include <stdlib.h>
+#include <stdlib.h>
 
 /**
  * string_nconcat - Concatène deux chaînes avec une limite sur s2
