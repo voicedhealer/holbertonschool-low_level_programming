@@ -5,7 +5,7 @@
  * @b: Taille en octets à allouer
  *
  * Return: Pointeur vers la mémoire allouée
- *         Exit avec statut 98 si échec
+ * Exit avec statut 98 si échec
  */
 void *malloc_checked(unsigned int b)
 {
