@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
+#include "main.h"
+
 char *str_concat(char *s1, char *s2)
 {
 	int x, c, d;
