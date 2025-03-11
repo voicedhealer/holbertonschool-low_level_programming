@@ -3,25 +3,34 @@
 #include "main.h"
 
 /**
- * _strdup - Duplicates a string using dynamically allocated memory
- * @str: The string to duplicate
- *
- * Return: Pointer to the duplicated string, or NULL on failure
+ * _strdup - check the code for Holberton School students.
+ * @str: puntero que apunta a un string
+ * Return: Always 0.
  */
 char *_strdup(char *str)
 {
-		char *dup;
-		size_t len;
+	char *s;
+	int x, z;
 
-		if (str == NULL)
-			return (NULL);
+	if (str == NULL)
+	{
+		return (NULL);
+	}
 
-		len = strlen(str) + 1;   /* Include space for '\0' */
-		dup = malloc(len);
+	for (x = 0; str[x] != '\0'; x++)
+	{
 
-		if (dup == NULL)
-			return (NULL);
+	}
+	s = malloc((x + 1) * sizeof(char));
 
-		strcpy(dup, str);
-		return (dup);
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	for (z = 0; str[z] != '\0'; z++)
+	{
+		s[z] = str[z];
+	}
+	s[z] = '\0';
+	return (s);
 }
