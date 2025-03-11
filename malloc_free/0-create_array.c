@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * create_array - Crée et initialise un tableau de caractères
@@ -9,11 +10,12 @@
  */
 char *create_array(unsigned int size, char c)
 {
+		char *array;  /* Déclaration en premier */
+		unsigned int i;
+
+		/* Vérification après les déclarations */
 		if (size == 0)
 			return (NULL);
-
-		char *array;
-		unsigned int i;
 
 		array = malloc(size * sizeof(char));
 		if (array == NULL)
@@ -24,4 +26,3 @@ char *create_array(unsigned int size, char c)
 
 		return (array);
 }
-
