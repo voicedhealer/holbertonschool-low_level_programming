@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
  * strtuct dog - dog structure
  * @name: name of the dog
