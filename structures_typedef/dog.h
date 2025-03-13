@@ -2,7 +2,7 @@
 #define DOG_H
 
 /**
- * struct dog - structure des differents élements
+ * struct dog - Represents a dog with basic information.
  * @name: name of the dog
  * @age: age of the dog
  * @owner: owner of the dog
