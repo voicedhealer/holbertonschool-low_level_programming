@@ -1,22 +1,24 @@
-#ifndef DOG_H_
-#define DOG_H_
+#ifndef DOG
+#define DOG
+#include <stdio.h>
 
 /**
- * struct dog - Base Struct of the code
- * @name: Pointer to string for determinate the name of the dog
- * @age: Variable to float for determinate the age of the dog
- * @owner: Pointer to string for determinate the owner of the dog
- * Return: 0 Success
+ * struct dog - A simple dog
+ * @name: The name of the dog
+ * @owner: The owner of the dog
+ * @age: The age of the dog
  */
-	struct dog
-	{
-		char *name;
-		float age;
-		char *owner;
-	};
-	typedef struct dog my_dog;
 
+struct dog
+{
+	char *name;
+	char *owner;
+	float age;
+};
+
+typedef struct dog dog_t;
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
-
-#endif /* DOG_H_ */
+dog_t *new_dog(char *name, float age, char *owner);
+void free_dog(dog_t *d);
+#endif /* DOG */
