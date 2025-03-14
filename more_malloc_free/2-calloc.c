@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <limits.h>
+#include "main.h"
+#include <stdio.h>
 
 /**
  * _calloc - Alloue de la mémoire et l'initialise à zéro
