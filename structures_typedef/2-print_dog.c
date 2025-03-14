@@ -2,7 +2,6 @@
 #include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * print_dog - print a struct dog
  * @d: The pointer to the dog
@@ -15,7 +14,6 @@ void print_dog(struct dog *d)
 	{
 		return;
 	}
-
 	if (d->name == NULL)
 	{
 		printf("Name: (nil)\n");
@@ -34,4 +32,4 @@ void print_dog(struct dog *d)
 		printf("Owner: %s\n", d->owner);
 	}
 }
-/* */
+
