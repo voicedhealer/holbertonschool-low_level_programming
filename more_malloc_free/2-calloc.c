@@ -1,39 +1,34 @@
-#include <stdlib.h>
-#include <limits.h>
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _calloc - Alloue de la mémoire et l'initialise à zéro
- * @nmemb: Nombre d'éléments
- * @size: Taille en octets de chaque élément
- * Return: Pointeur vers la mémoire allouée, NULL en cas d'échec
+ * _calloc - Allocate a memory and initialize it
+ * @nmemb: Array
+ * @size: Size of array
+ * Return: void
  */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-    void *ptr;
-    unsigned int i, total_size;
-    char *casted_ptr;
+	unsigned int i;
+	char *ptr;
 
-    /* Gestion des cas particuliers */
-    if (nmemb == 0 || size == 0)
-        return (NULL);
+	if (nmemb == 0 || size == 0)
+	{
+		return (NULL);
+	}
 
-    /* Vérification débordement mémoire */
-    if (size && nmemb > UINT_MAX / size)
-        return (NULL);
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
 
-    total_size = nmemb * size;
+	for (i = 0; i < (nmemb * size); i++)
+	{
+		ptr[i] = 0;
+	}
 
-    /* Allocation mémoire */
-    ptr = malloc(total_size);
-    if (ptr == NULL)
-        return (NULL);
-
-    /* Initialisation à zéro */
-    casted_ptr = ptr;
-    for (i = 0; i < total_size; i++)
-        casted_ptr[i] = 0;
-
-    return (ptr);
+	return (ptr);
 }
