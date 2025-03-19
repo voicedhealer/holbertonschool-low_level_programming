@@ -2,24 +2,34 @@
 #include <stdio.h>
 
 /**
- * int_index - Recherche un entier dans un tableau via une fonction de comparaison
- * @array: Tableau d'entiers à parcourir
- * @size: Nombre d'éléments dans le tableau
- * @cmp: Pointeur vers la fonction de comparaison
- *
- * Return: Index du premier élément trouvé, -1 si non trouvé ou si paramètres invalides
+ * int_index - Search for an int
+ * @array: The array to search in
+ * @size: The number of element in the array
+ * @cmp: The function to call
+ * Return: O for success, -1 if no element match
  */
+
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i;
+	int i = 0;
 
-	if (array && cmp && size > 0)
+    if (size <= 0)
+		return (-1);
+
+    if (array == NULL)
+		return (-1);
+
+    if (cmp == NULL)
+		return (-1);
+	
+	for (i = 0; i < size; i++)
 	{
-		for (i = 0; i < size; i++)
-		{
-			if (cmp(array[i]) != 0)
-				return (i);
-		}
-	}
+        
+		if (cmp(array[i]) != 0)
+		{	
+        return (i);
+        }
+
+    }
 	return (-1);
 }
