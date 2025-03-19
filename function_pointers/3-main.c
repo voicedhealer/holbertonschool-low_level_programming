@@ -4,11 +4,11 @@
 
 /**
  * main - Entry point
- * @argc: The number of argumentqs
+ * @argc: The number of arguments
  * @argv: The value of said arguments
- * Return: O for success
+ *
+ * Return: 0 for success
  */
-
 int main(int argc, char *argv[])
 {
 	int num1, num2;

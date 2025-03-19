@@ -7,7 +7,6 @@
  * @s: The operator to select
  * Return: A pointer to the desired operator
  */
-
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
@@ -18,9 +17,8 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	i = 0;
 	while (ops[i].op != NULL)
 	{
 		if (strcmp(s, ops[i].op) == 0)
