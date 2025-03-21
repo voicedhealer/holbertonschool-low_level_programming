@@ -3,26 +3,24 @@
 
 /**
  * sum_them_all - Return the sum of all parameters
- * @n: The numbers to add
+ * @n: The number of parameters
+ *
  * Return: The sum of all parameters
  */
-
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list ap;
-	unsigned int i, sum;
-
-	va_start(ap, n);
-
+	unsigned int i, sum = 0;
 
 	if (n == 0)
 		return (0);
 
-	sum = 0;
+	va_start(ap, n);
+
 	for (i = 0; i < n; i++)
 		sum += va_arg(ap, int);
 
 	va_end(ap);
-	return (sum);
 
+	return (sum);
 }
