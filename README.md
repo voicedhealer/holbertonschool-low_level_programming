@@ -1,4 +1,4 @@
-# holbertonschool-low_level_programming# Holberton School Low-Level Programming
+# holbertonschool-low_level_programming
 
 Ce dépôt contient tous les exercices et projets réalisés dans le cadre du cursus de programmation bas niveau à l'école Holberton.
 
