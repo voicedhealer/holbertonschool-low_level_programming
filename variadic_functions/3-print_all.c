@@ -3,56 +3,49 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - Affiche des éléments de types variables selon un format
- * @format: Chaîne de format (c=char, i=int, f=float, s=string)
- * @...: Éléments variables à afficher
- *
- * Description: Les éléments sont séparés par ", ". 
- *              Les strings NULL sont affichés comme "(nil)".
- *              Un saut de ligne est ajouté à la fin.
+ * print_all - Prints anything
+ * @format: The format which need a print
+ * Return: Nothing
  */
+
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	unsigned int i = 0;
-	int printed = 0;
-	char *s;
+	va_list(args);
+	const char *str, *s = "";
+	int i = 0;
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	while (format && format[i])
 	{
-		if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's')
+		switch (format[i])
 		{
-			if (printed)
-				printf(", ");
+			case 'c':
+				printf("%s%c", s,  va_arg(args, int));
+				break;
 
-			switch (format[i])
-			{
-				case 'c':
-					printf("%c", va_arg(args, int));
-					printed = 1;
-					break;
-				case 'i':
-					printf("%d", va_arg(args, int));
-					printed = 1;
-					break;
-				case 'f':
-					printf("%f", va_arg(args, double));
-					printed = 1;
-					break;
-				case 's':
-					s = va_arg(args, char *);
-					if (s == NULL)
-						s = "(nil)";
-					printf("%s", s);
-					printed = 1;
-					break;
-			}
+			case 'i':
+				printf("%s%i", s,  va_arg(args, int));
+				break;
+
+			case 'f':
+				printf("%s%f", s,  va_arg(args, double));
+				break;
+
+			case 's':
+				str = va_arg(args, char *);
+				if (!str)
+					str = "(nil)";
+				printf("%s%s", s, str);
+				break;
+
+			default:
+				i++;
+				continue;
 		}
+		s = ", ";
 		i++;
 	}
-
-	va_end(args);
 	printf("\n");
+	va_end(args);
 }
