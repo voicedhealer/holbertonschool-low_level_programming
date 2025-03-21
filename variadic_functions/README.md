@@ -26,7 +26,7 @@ Pour utiliser ces fonctions dans votre code, incluez le fichier d'en-tête `vari
 
 
 ## Auteur
-[Bernardot Vivien]
+Bernardot Vivien
 
 ## Ressources supplémentaires
 - [GCC va_arg, va_start, va_end](https://gcc.gnu.org/onlinedocs/gcc/Variadic-Macros.html)
