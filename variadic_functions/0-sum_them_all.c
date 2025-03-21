@@ -23,4 +23,3 @@ va_end(nums);
 
 return (sum);
 }
-
