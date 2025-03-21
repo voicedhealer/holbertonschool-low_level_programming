@@ -6,20 +6,20 @@
  * @n: The number of parameters passed to the function.
  * @...: A avariable number of parameters to calculate the sum of.
  *
- * Return: If n == 0 - 0.
- *        Otherwise - the sum of all parameters.
+ * Return:  If n == 0 - 0.
+ *          Otherwise - the sum of all parameters.
  */
 int sum_them_all(const unsigned int n, ...)
 {
-va_list nums;
-unsigned int index, sum = 0;
+    va_list nums;
+        unsigned int index, sum = 0;
 
-va_start(nums, n);
+    va_start(nums, n);
 
-for (index = 0; index < n; index++)
-sum += va_arg(nums, int);
+    for (index = 0; index < n; index++)
+        sum += va_arg(nums, int);
 
-va_end(nums);
+    va_end(nums);
 
-return (sum);
+    return (sum);
 }
