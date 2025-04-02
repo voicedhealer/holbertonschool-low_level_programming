@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_list - Prints elements of a 
- * linked list with specific formatting
+ * print_list - Prints elements of a linked list with specific formatting
  * @h: Pointer to the head of the list
  *
  * Return: Number of nodes in the list
