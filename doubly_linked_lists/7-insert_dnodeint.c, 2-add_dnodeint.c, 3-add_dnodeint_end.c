@@ -2,46 +2,52 @@
 #include <stdlib.h>
 
 /**
- * insert_dnodeint_at_index - Inserts a node at a given position.
- * @h: Double pointer to the head of the list.
- * @idx: Index where the new node should be added.
- * @n: Value to store in the new node.
+ * insert_dnodeint_at_index - A function to create a node at n position
  *
- * Return: Address of the new node, or NULL if failed.
+ * @h: The beginning of the list
+ * @idx: The index at which we desire to create a node
+ * @n: The data to insert in the node
+ *
+ * Return: The address of the new node (or NULL if failed)
  */
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-    dlistint_t *new_node, *current;
-    unsigned int count = 0;
+	dlistint_t *new_node, *tmp = *h;
+	unsigned int i = 0;
 
-    if (h == NULL)
-        return (NULL);
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
+		return (NULL);
 
-    if (idx == 0)
-        return (add_dnodeint(h, n));
+	new_node->n = n;
 
-    current = *h;
-    while (current != NULL && count < idx - 1)
-    {
-        current = current->next;
-        count++;
-    }
+	if (idx == 0)
+	{
+		new_node->next = *h;
+		new_node->prev = NULL;
+		if (*h)
+			(*h)->prev = new_node;
+		*h = new_node;
+		return (new_node);
+	}
 
-    if (current == NULL)
-        return (NULL);
+	for (; tmp && i < idx - 1; i++)
+		tmp = tmp->next;
 
-    new_node = malloc(sizeof(dlistint_t));
-    if (new_node == NULL)
-        return (NULL);
+	if (!tmp)
+	{
+		free(new_node);
+		return (NULL);
+	}
 
-    new_node->n = n;
-    new_node->prev = current;
-    new_node->next = current->next;
+	new_node->next = tmp->next;
+	new_node->prev = tmp;
 
-    if (current->next != NULL)
-        current->next->prev = new_node;
+	if (tmp->next)
+		tmp->next->prev = new_node;
 
-    current->next = new_node;
+	tmp->next = new_node;
 
-    return (new_node);
+	return (new_node);
 }
