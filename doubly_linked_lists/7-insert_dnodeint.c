@@ -2,43 +2,44 @@
 #include <stdlib.h>
 
 /**
- * delete_dnodeint_at_index - Deletes a node at a given index in a doubly linked list.
- * @head: Double pointer to the head of the list.
- * @index: Index of the node to be deleted.
+ * insert_dnodeint_at_index - Inserts a new node at a given position
+ * @h: Double pointer to the head of the list
+ * @idx: Index where the new node should be added
+ * @n: Value to store in the new node
  *
- * Return: 1 if successful, -1 if failed.
+ * Return: Address of the new node, or NULL if failed
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-    dlistint_t *current;
-    unsigned int count = 0;
+    dlistint_t *new_node, *current;
+    unsigned int i;
 
-    if (head == NULL || *head == NULL)
-        return (-1);
+    if (!h) /* Check if h is NULL */
+        return (NULL);
 
-    current = *head;
+    if (idx == 0) /* Insert at beginning */
+        return (add_dnodeint(h, n));
 
-    /* Traverse to the node at the given index */
-    while (current != NULL && count < index)
-    {
+    current = *h;
+    for (i = 0; current && i < idx - 1; i++)
         current = current->next;
-        count++;
-    }
 
-    /* Check if index is out of bounds */
-    if (current == NULL)
-        return (-1);
+    if (!current) /* Index out of bounds */
+        return (NULL);
 
-    /* Adjust previous node's next pointer or update head */
-    if (current->prev != NULL)
-        current->prev->next = current->next;
-    else
-        *head = current->next;
+    /* Create new node */
+    new_node = malloc(sizeof(dlistint_t));
+    if (!new_node)
+        return (NULL);
 
-    /* Adjust next node's prev pointer if it exists */
-    if (current->next != NULL)
-        current->next->prev = current->prev;
+    new_node->n = n;
+    new_node->next = current->next;
+    new_node->prev = current;
 
-    free(current);
-    return (1);
+    if (current->next) /* Update next node's prev if exists */
+        current->next->prev = new_node;
+
+    current->next = new_node;
+
+    return (new_node);
 }
