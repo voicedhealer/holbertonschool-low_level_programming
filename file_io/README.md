@@ -1,4 +1,4 @@
-Voici un exemple de fichier **README.md** structuré pour le projet **C - File I/O** :
+projet C - File I/O
 
 ---
 
