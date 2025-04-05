@@ -3,6 +3,14 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <stdint.h> /* Pour uint16_t, uint32_t, uintptr_t */
+
+/* Définir EI_NIDENT si non défini */
+#ifndef EI_NIDENT
+#define EI_NIDENT 16
+#endif
 
 int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
@@ -14,43 +22,23 @@ const char *get_osabi_string(unsigned char osabi);
 const char *get_type_string(uint16_t type);
 
 /**
- * struct elf_header - Represents the ELF header structure.
+ * struct elf_header - Représente la structure d'un en-tête ELF.
  *
- * @e_ident: An array of bytes marking the file as an ELF file
- * and providing machine-independent data.
- * - e_ident[EI_MAG0]: Magic number (0x7F).
- * - e_ident[EI_MAG1]: Magic number ('E').
- * - e_ident[EI_MAG2]: Magic number ('L').
- * - e_ident[EI_MAG3]: Magic number ('F').
- * - e_ident[EI_CLASS]: Class of the architecture (e.g., ELFCLASS32,
- *   ELFCLASS64).
- * - e_ident[EI_DATA]: Data encoding of the object file.
- * - e_ident[EI_VERSION]: Version number of the ELF specification.
- * - e_ident[EI_OSABI]: Operating system and ABI identification.
- * - e_ident[EI_ABIVERSION]: ABI version.
- * - e_ident[EI_PAD]: Starts padding bytes.
- * - e_ident[EI_NIDENT]: Size of e_ident array.
- * @e_type: Object file type (e.g., ET_REL, ET_EXEC, ET_DYN).
- * @e_machine: Machine architecture (e.g., EM_X86_64).
- * @e_version: Object file version (must be EV_CURRENT).
- * @e_entry: Virtual address of the entry point for executable files.
- * @e_phoff: Program header table's file offset in bytes.
- * @e_shoff: Section header table's file offset in bytes.
- * @e_flags: Processor-specific flags.
- * @e_ehsize: ELF header's size in bytes.
- * @e_phentsize: Size in bytes of one entry in the program header table.
- * @e_phnum: Number of entries in the program header table.
- * @e_shentsize: Size in bytes of one entry in the section header table.
- * @e_shnum: Number of entries in the section header table.
- * @e_shstrndx: Section header table index of the section containing
- * section names.
- *
- * Description: This structure defines the layout of the ELF header, which is
- * present at the beginning of every ELF file. It contains essential
- * information about the file's organization and content, allowing the
- * system to interpret and execute or link the file correctly.
+ * @e_ident: Tableau d'octets identifiant le fichier comme un fichier ELF.
+ * @e_type: Type du fichier objet (par exemple, ET_REL, ET_EXEC, ET_DYN).
+ * @e_machine: Architecture de la machine (par exemple, EM_X86_64).
+ * @e_version: Version du fichier objet (doit être EV_CURRENT).
+ * @e_entry: Adresse virtuelle du point d'entrée pour les fichiers exécutables.
+ * @e_phoff: Décalage en octets de la table des en-têtes de programme.
+ * @e_shoff: Décalage en octets de la table des en-têtes de section.
+ * @e_flags: Indicateurs spécifiques au processeur.
+ * @e_ehsize: Taille de l'en-tête ELF en octets.
+ * @e_phentsize: Taille en octets d'une entrée dans la table des en-têtes de programme.
+ * @e_phnum: Nombre d'entrées dans la table des en-têtes de programme.
+ * @e_shentsize: Taille en octets d'une entrée dans la table des en-têtes de section.
+ * @e_shnum: Nombre d'entrées dans la table des en-têtes de section.
+ * @e_shstrndx: Index de la table des noms de section.
  */
-
 typedef struct elf_header
 {
 	unsigned char e_ident[EI_NIDENT];
@@ -68,6 +56,5 @@ typedef struct elf_header
 	uint16_t e_shnum;
 	uint16_t e_shstrndx;
 } elf_header_t;
-
 
 #endif /* MAIN_H */
